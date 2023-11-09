@@ -1,10 +1,38 @@
 import { WebPlugin } from '@capacitor/core';
-
-import type { SipCallPlugin } from './definitions';
+import type { CallOptions, LoginOptions, PermissionStatus, SipCallPlugin } from './definitions';
 
 export class SipCallWeb extends WebPlugin implements SipCallPlugin {
-  async echo(options: { value: string }): Promise<{ value: string }> {
-    console.log('ECHO', options);
-    return options;
+  login(_options: LoginOptions): Promise<void> {
+    console.error("This plugin is only available for android");
+    return Promise.resolve();
+  }
+  call(_options: CallOptions): Promise<void> {
+    console.error("This plugin is only available for android");
+    return Promise.resolve();
+  }
+  setMicrophoneMuted(_options: { muted: boolean; }): Promise<void> {
+    console.error("This plugin is only available for android");
+    return Promise.resolve();
+  }
+  setSpeakerEnabled(_options: { enabled: boolean; }): Promise<void> {
+    console.error("This plugin is only available for android");
+    return Promise.resolve();
+  }
+  logout(): Promise<void> {
+    console.error("This plugin is only available for android");
+    return Promise.resolve();
+  }
+
+  hangup(): Promise<void> {
+    console.error("This plugin is only available for android");
+    return Promise.resolve();
+  }
+
+  requestPermissions(): Promise<PermissionStatus> {
+    throw Error("This plugin is only available for android");
+  }
+
+  checkPermissions(): Promise<PermissionStatus> {
+    throw Error("This plugin is only available for android");
   }
 }

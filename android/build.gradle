@@ -43,16 +43,25 @@ android {
 }
 
 repositories {
+    maven {
+            name "linphone.org maven repository"
+            url "https://linphone.org/maven_repository/"
+            content {
+                includeGroup "org.linphone"
+            }
+        }
     google()
     mavenCentral()
 }
 
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
     implementation project(':capacitor-android')
     implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
+    implementation "org.linphone:linphone-sdk-android:5.1.23"
 }
+
